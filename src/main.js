@@ -63,7 +63,7 @@ function getCheapestHotel (input) { //DO NOT change the function's name.
    
     //Pega o menor valor
     let menor = Hotels[0];
-    if(Hotels[0].total > Hotels[1].total){
+    if(Hotels[0].total >= Hotels[1].total){
         if(Hotels[0].total == Hotels[1].total){
             if(Hotels[0].stars > Hotels[1].stars){
                 menor = Hotels[0]
@@ -71,14 +71,16 @@ function getCheapestHotel (input) { //DO NOT change the function's name.
         }
         menor = Hotels[1]
     }
-    if(Hotels[1].total > Hotels[2].total){
-        if(Hotels[1].total == Hotels[2].total){
-            if(Hotels[1].stars > Hotels[2].stars){
-                menor = Hotels[1]
+    //console.log(menor)
+    if(menor.total >= Hotels[2].total){
+        if(menor.total == Hotels[2].total){
+            if(menor.stars > Hotels[2].stars){
+                //menor = menor
             }
         }
         menor = Hotels[2]
     }
+    //console.log(Hotels[2])
     
     return menor.name;
 
@@ -86,6 +88,3 @@ function getCheapestHotel (input) { //DO NOT change the function's name.
 }
 
 exports.getCheapestHotel = getCheapestHotel
-
-
-//exports.getCheapestHotel = getCheapestHotel
